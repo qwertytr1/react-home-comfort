@@ -1,0 +1,11 @@
+.dual-slider__min-max-val {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 8px;
+  font-size: 15px;
+  margin-top: 8px;
+}
+
+.dual-slider {
+  margin-right: 8px;
+}

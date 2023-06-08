@@ -1,0 +1,23 @@
+.main__filter {
+  border-right: 1px solid lightgray;
+  width: 230px;
+  height: max-content;
+}
+
+.main__filter h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0px 0px 15px 0px;
+}
+
+.main__container {
+  display: flex;
+  min-height: 104px;
+}
+
+._container {
+  max-width: 95%;
+  margin: 0 auto;
+  box-sizing: content-box;
+  margin-top: 15px;
+}

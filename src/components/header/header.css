@@ -156,3 +156,14 @@
   margin: 22px 0 0 25px;
   display: none;
 }
+
+.total {
+  font-size: 30px;
+  font-weight: 700;
+  font-family: 'Roboto';
+  text-align: center;
+}
+
+.total span {
+  color: rgb(127, 200, 17);
+}

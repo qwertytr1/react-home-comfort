@@ -1,0 +1,16 @@
+.main__filter__manufactures-block > .manufacturers {
+  margin-top: 10px;
+}
+
+.main__filter__manufacturers {
+  max-width: 230px;
+  flex-direction: column;
+  height: 245px;
+  padding: 0px 0 0 0;
+}
+
+.main__filter__manufactures-block {
+  height: 245px;
+  border-bottom: 1px solid lightgray;
+  padding-right: 5px;
+}
