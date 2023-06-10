@@ -20,6 +20,7 @@
   font-size: 48px;
   font-weight: 700;
   color: inherit;
+  cursor: default;
 }
 
 .title span {
@@ -162,6 +163,7 @@
   font-weight: 700;
   font-family: 'Roboto';
   text-align: center;
+  cursor: pointer;
 }
 
 .total span {
