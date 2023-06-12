@@ -1,16 +1,16 @@
 import React from 'react';
-import { Categories } from '../Categories/categories';
+import { ChooseCategories } from '../Categories/categories';
 import './filter.css';
-import { Manufacture } from '../manufacture/manufacture';
+import { ChooseManufacture } from '../manufacture/manufacture';
 import { Price } from '../price/price';
 import { Stock } from '../stock/stock';
-function Filter() {
+function Filter({ onChangeCategoriesList, onChangeManufacturesList, onChangePrice }: any) {
   return (
     <div className="main__page-block main-block">
       <div className="main__container _container">
         <section className="main__filter">
-          <Categories />
-          <Manufacture />
+          <ChooseCategories onChangeCategoriesList={onChangeCategoriesList} />
+          <ChooseManufacture onChangeManufacturesList={onChangeManufacturesList} />
           <Price />
           <Stock />
         </section>

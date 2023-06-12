@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import './price.css';
 import ReactSlider from 'react-slider';
-function Price() {
+function Price(onChangePrice: any) {
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(5000);
+  // const handleChange = (minValue: number, maxValue: number) => {
+  //   onChangePrice(minValue, maxValue);
+  // };
   return (
     <aside className="main__filter__price-block">
       <h2 className="categories manufacturers">Price</h2>
@@ -27,6 +30,7 @@ function Price() {
           onChange={([min, max]) => {
             setMin(min);
             setMax(max);
+            // handleChange(min, max);
           }}
         />
         <div className="dual-slider__min-max-val">
