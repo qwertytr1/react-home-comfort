@@ -1,10 +1,8 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
-import { Header } from 'components/header/header';
-import { Footer } from 'components/footer/footer';
-import { MainPage } from 'components/mainPart/mainPage';
-import './layout.css';
-// import Footer from
+import { Header } from './header/index';
+import { Footer } from './footer/index';
+import { MainPage } from './mainPage/index';
+import './style.css';
 function Layout() {
   return (
     <div className="wrapper">
@@ -12,7 +10,6 @@ function Layout() {
         <Header />
       </header>
       <main className="main">
-        <Outlet />
         <MainPage />
       </main>
       <footer className="footer">

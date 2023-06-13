@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import ReactSlider from 'react-slider';
-import './stock.css';
-function Stock() {
+import './style.css';
+interface DualSliderContainerProps {
+  title: string;
+}
+function DualSliderContainer({ title }: DualSliderContainerProps) {
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(5000);
   return (
-    <aside className="main__filter__stock">
-      <h2 className="categories manufacturers">Stock</h2>
+    <aside className="main__filter__dual-slider">
+      <h2 className="dual-slider_container_title">{title}</h2>
       <div className="dual-slider stock">
         <ReactSlider
           defaultValue={[min, max]}
@@ -41,4 +44,4 @@ function Stock() {
     </aside>
   );
 }
-export { Stock };
+export { DualSliderContainer };

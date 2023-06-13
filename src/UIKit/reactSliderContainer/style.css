@@ -1,4 +1,4 @@
-.main__filter__price-block {
+.main__filter__dual-slider {
   max-width: 230px;
   flex-direction: column;
   height: 130px;
@@ -58,12 +58,4 @@ p {
 
 p span {
   font-weight: 600;
-}
-
-.main__filter__stock {
-  max-width: 230px;
-  flex-direction: column;
-  height: 130px;
-  padding-top: 10px;
-  border-bottom: 0.5px solid lightgray;
 }

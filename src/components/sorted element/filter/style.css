@@ -4,12 +4,6 @@
   height: max-content;
 }
 
-.main__filter h2 {
-  font-size: 20px;
-  font-weight: 700;
-  margin: 0px 0px 15px 0px;
-}
-
 .main__container {
   display: flex;
   min-height: 104px;

@@ -1,6 +1,6 @@
 import { type } from '@testing-library/user-event/dist/type';
 import React, { useState } from 'react';
-import './sortedStyle.css';
+import './style.css';
 function SortedBy() {
   const [open, setOpen] = useState(false);
   return (
