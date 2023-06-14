@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import ReactSlider from 'react-slider';
-import { DualSliderContainer } from '../../../UIKit/reactSliderContainer/index';
+import React from "react";
+import { DualSliderContainer } from "UIKit/reactSliderContainer/index";
 function Stock() {
-  return <DualSliderContainer title="Stock" />;
+    return <DualSliderContainer title="Stock" />;
 }
 export { Stock };
