@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactSlider from "react-slider";
-import "./style.css";
+import "UIKit/reactSliderContainer/style.css";
 
 interface DualSliderContainerProps {
     title: string;

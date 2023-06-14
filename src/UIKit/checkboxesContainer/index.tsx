@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "UIKit/checkboxesContainer/style.css";
 
 interface CheckboxesContainerProps {
     title: string;

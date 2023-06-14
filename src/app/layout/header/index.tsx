@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./style.css";
+import "app/layout/header/style.css";
 function Header() {
     const [open, setOpen] = useState(false);
     return (

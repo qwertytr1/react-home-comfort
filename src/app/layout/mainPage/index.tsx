@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { SortedBy } from "components/sorted element/SortedBy";
-import "./style.css";
+import "app/layout/mainPage/style.css";
 import { Filter } from "components/sorted element/filter/index";
 interface OnChangeCheckboxCallback {
     onChangeCategoriesList?: (value: string, checker: boolean) => void;

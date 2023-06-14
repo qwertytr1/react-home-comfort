@@ -2,7 +2,7 @@ import React from "react";
 import { Header } from "./header/index";
 import { Footer } from "./footer/index";
 import { MainPage } from "./mainPage/index";
-import "./style.css";
+import "app/layout/style.css";
 function Layout() {
     return (
         <div className="wrapper">
