@@ -4,6 +4,13 @@
 /node_modules
 /.pnp
 .pnp.js
+.eslintrc.json
+.prettierrc.json
+package.json
+package-lock.json
+README.md
+README.old.md
+tsconfig.json
 
 # testing
 /coverage
