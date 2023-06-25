@@ -4,11 +4,16 @@ import "UIKit/reactSliderContainer/style.css";
 
 interface DualSliderContainerProps {
     title: string;
+    onChangeSlider?: (min: number, max: number) => undefined | void;
+    minValue: number;
+    maxValue: number;
+    minDist: number;
+    step: number;
 }
 
-function DualSliderContainer({ title }: DualSliderContainerProps) {
-    const [min, setMin] = useState(0);
-    const [max, setMax] = useState(5000);
+function DualSliderContainer({ title, onChangeSlider, minValue, maxValue, minDist, step }: DualSliderContainerProps) {
+    const [min, setMin] = useState(minValue);
+    const [max, setMax] = useState(maxValue);
     return (
         <aside className="main__filter__dual-slider">
             <h2 className="dual-slider_container_title">{title}</h2>
@@ -17,10 +22,10 @@ function DualSliderContainer({ title }: DualSliderContainerProps) {
                     defaultValue={[min, max]}
                     className="progressBar"
                     trackClassName="tracker"
-                    min={0}
-                    max={5000}
-                    minDistance={250}
-                    step={50}
+                    min={minValue}
+                    max={maxValue}
+                    minDistance={minDist}
+                    step={step}
                     withTracks={true}
                     pearling={true}
                     renderThumb={(props) => {
@@ -32,6 +37,7 @@ function DualSliderContainer({ title }: DualSliderContainerProps) {
                     onChange={([Min, Max]) => {
                         setMin(Min);
                         setMax(Max);
+                        onChangeSlider?.(Min, Max);
                     }}
                 />
                 <div className="dual-slider__min-max-val">

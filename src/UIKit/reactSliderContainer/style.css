@@ -1,61 +1,61 @@
 .main__filter__dual-slider {
-  max-width: 230px;
-  flex-direction: column;
-  height: 130px;
-  margin-top: 10px;
-  border-bottom: 0.5px solid lightgray;
-  display: flex;
-  padding-bottom: 3px;
+    max-width: 230px;
+    flex-direction: column;
+    height: 130px;
+    margin-top: 10px;
+    border-bottom: 0.5px solid lightgray;
+    display: flex;
+    padding-bottom: 3px;
 }
 
 .dual-slider__min-max-val {
-  display: flex;
-  justify-content: space-between;
-  padding-right: 8px;
-  font-size: 15px;
-  margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 8px;
+    font-size: 15px;
+    margin-top: 8px;
 }
 
 .track {
-  background-color: var(--gray);
-  height: 2px;
+    background-color: var(--gray);
+    height: 2px;
 }
 
 .track:nth-child(2) {
-  background-color: var(--char-coal);
+    background-color: var(--char-coal);
 }
 
 .progressBar {
-  height: 5px;
-  border-radius: 5px;
-  margin: 8px 0 10px 0;
-  position: relative;
-  background-color: gray;
+    height: 5px;
+    border-radius: 5px;
+    margin: 8px 0 10px 0;
+    position: relative;
+    background-color: gray;
 }
 
 .dual-slider {
-  margin-right: 8px;
+    margin-right: 8px;
 }
 
 .thumb {
-  width: 0.75rem;
-  height: 0.75rem;
-  background: gray;
-  border-radius: 50%;
-  cursor: pointer;
-  position: absolute;
-  top: -4px;
+    width: 0.75rem;
+    height: 0.75rem;
+    background: gray;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: -4px;
 }
 
 .values-wrapper {
-  margin-top: 2rem;
+    margin-top: 2rem;
 }
 
 p {
-  font-weight: 500;
-  font-size: large;
+    font-weight: 500;
+    font-size: large;
 }
 
 p span {
-  font-weight: 600;
+    font-weight: 600;
 }

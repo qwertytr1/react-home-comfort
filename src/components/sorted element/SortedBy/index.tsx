@@ -2,6 +2,16 @@ import React, { useState } from "react";
 import "./style.css";
 function SortedBy() {
     const [open, setOpen] = useState(false);
+    const [activeValue, setActiveValue] = useState("auto");
+
+    const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
+        const value = e.currentTarget.dataset.value;
+        if (value) {
+            setActiveValue(value);
+            setOpen(false);
+        }
+    };
+
     return (
         <>
             <article className="main__info-for-users">
@@ -9,33 +19,73 @@ function SortedBy() {
                     <h3 className="text-for-dropdown">Sort by</h3>
                     <nav className="dropdown">
                         <button
-                            className="dropdown__button "
+                            className={`dropdown__button ${open ? "drop" : "inactive"}`}
                             onClick={() => {
                                 setOpen(!open);
                             }}
                         >
-                            auto
+                            {activeValue}
                         </button>
                         <ul className={`dropdown__list ${open ? "drop" : "inactive"}`}>
-                            <li className="dropdown__list-item active-sort" data-vale="auto">
+                            <li
+                                className={`dropdown__list-item ${activeValue === "auto" ? "active-sort" : "unactive"}`}
+                                data-value="auto"
+                                onClick={handleClick}
+                            >
                                 auto
                             </li>
-                            <li className="dropdown__list-item" data-vale="price ASC">
+                            <li
+                                className={`dropdown__list-item ${
+                                    activeValue === "price ASC" ? "active-sort" : "unactive"
+                                }`}
+                                data-value="price ASC"
+                                onClick={handleClick}
+                            >
                                 price ASC
                             </li>
-                            <li className="dropdown__list-item" data-vale="price DESC">
+                            <li
+                                className={`dropdown__list-item ${
+                                    activeValue === "price DESC" ? "active-sort" : "unactive"
+                                }`}
+                                data-value="price DESC"
+                                onClick={handleClick}
+                            >
                                 price DESC
                             </li>
-                            <li className="dropdown__list-item" data-vale="rating ASC">
+                            <li
+                                className={`dropdown__list-item ${
+                                    activeValue === "rating ASC" ? "active-sort" : "unactive"
+                                }`}
+                                data-value="rating ASC"
+                                onClick={handleClick}
+                            >
                                 rating ASC
                             </li>
-                            <li className="dropdown__list-item" data-vale="rating DESC">
+                            <li
+                                className={`dropdown__list-item ${
+                                    activeValue === "rating DESC" ? "active-sort" : "unactive"
+                                }`}
+                                data-value="rating DESC"
+                                onClick={handleClick}
+                            >
                                 rating DESC
                             </li>
-                            <li className="dropdown__list-item" data-vale="discount ASC">
+                            <li
+                                className={`dropdown__list-item ${
+                                    activeValue === "discount ASC" ? "active-sort" : "unactive"
+                                }`}
+                                data-value="discount ASC"
+                                onClick={handleClick}
+                            >
                                 discount ASC
                             </li>
-                            <li className="dropdown__list-item" data-vale="discount DESC">
+                            <li
+                                className={`dropdown__list-item ${
+                                    activeValue === "discount DESC" ? "active-sort" : "unactive"
+                                }`}
+                                data-value="discount DESC"
+                                onClick={handleClick}
+                            >
                                 discount DESC
                             </li>
                         </ul>
