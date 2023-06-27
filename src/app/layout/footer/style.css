@@ -1,0 +1,47 @@
+.footer__title {
+  font-size: 30px;
+  font-weight: 700;
+  color: inherit;
+}
+
+.footer__title span {
+  color: rgb(127, 200, 17);
+}
+
+.footer__container {
+  display: flex;
+  min-height: 104px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer__icons-gitAndCourse {
+  display: flex;
+  align-items: center;
+}
+
+.icon:not(:last-child) {
+  margin: 0px 15px 0px 0px;
+}
+
+.footer__iconsGit-first {
+  width: 50px;
+  height: 50px;
+  background: url(../../../assets/icons/footer/Octicons-mark-github.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.footer__iconsCourse {
+  width: 70px;
+  height: 30px;
+  background: url(../../../assets/icons/footer/rs_school_js.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 7px 0px 0px 15px;
+}
+
+.footer__icons-year {
+  font-weight: 400;
+  font-size: 30px;
+}
