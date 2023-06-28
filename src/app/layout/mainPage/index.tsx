@@ -90,7 +90,6 @@ function MainPage() {
 
     useEffect(() => {
         if (dualSliderPrice.minValue !== 0 || dualSliderPrice.maxValue !== 5000) {
-            console.log("tr");
             const price: Products[] = [];
             brandsList.forEach((el) => {
                 const a = Number(el.price.slice(0, -1));
@@ -106,7 +105,6 @@ function MainPage() {
 
     useEffect(() => {
         if (dualSliderStock.minValue !== 0 || dualSliderStock.maxValue !== 150) {
-            console.log("tr");
             const stock: Products[] = [];
             dualSliderPriceList.forEach((el) => {
                 if (el.stock <= dualSliderStock.maxValue && el.stock >= dualSliderStock.minValue) {
@@ -118,12 +116,11 @@ function MainPage() {
             setDualSliderStockList(dualSliderPriceList);
         }
     }, [dualSliderPriceList, dualSliderStock]);
-    console.log(dualSliderStockList);
 
     return (
         <>
             <section className="block">
-                <SortedBy />
+                <SortedBy dualSliderStockList={dualSliderStockList} />
             </section>
             <Filter
                 onChangeCategoriesList={onChangeCategoriesList}

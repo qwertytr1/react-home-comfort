@@ -26,6 +26,14 @@ function Header() {
                     >
                         <i className="fas fa-search"></i>
                     </div>
+                    <div
+                        className={`cancel-btn ${open ? "active" : "inactive"}`}
+                        onClick={() => {
+                            setOpen(!open);
+                        }}
+                    >
+                        <i className="fas fa-times"></i>
+                    </div>
                 </div>
                 <div className="searchAndShoppingBasket__ShoppingBasket">
                     <span className="Basket__counter">0</span>

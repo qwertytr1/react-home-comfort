@@ -30,7 +30,7 @@
 .header__burgerMenu {
     width: 50px;
     height: 50px;
-    background: url(../../../assets/icons/header\ Menu/menu-icon.svg);
+    background: url(../../../assets/icons/header\ Menu/menu-icon.svg) contain no-repeat;
     background-size: contain;
     background-repeat: no-repeat;
     display: none;
@@ -84,9 +84,13 @@
     right: 0px;
     width: 50px;
     height: 50px;
-    background: grey;
+    background-color: grey;
+    background: url(../../../assets/icons/header\ Menu/search-white.svg);
+background-repeat: no-repeat;
+background-size:30px;
     border-radius: 50%;
     color: #fff;
+    background-position: center;
     transform: translateY(-50%) rotate(360deg);
 }
 
@@ -96,7 +100,11 @@
     right: 0px;
     width: 50px;
     height: 50px;
-    background: grey;
+background-color: gray;
+background: url(../../../assets/icons/header\ Menu/search.svg);
+background-repeat: no-repeat;
+background-size:30px;
+background-position: center;
     border-radius: 50%;
     color: #fff;
     text-align: center;
@@ -107,7 +115,6 @@
     z-index: 1;
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
-
 .cancel-btn {
     position: absolute;
     top: 50%;
@@ -116,15 +123,18 @@
     cursor: pointer;
     font-size: 25px;
     color: rgb(65, 64, 64);
+
     transition: all 0.5s 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .cancel-btn.active {
+       background-image: url(../../../assets/icons/header\ Menu/2.png);
+       width: 20px;
+       height: 20px;
+       background-size: 20px;
     position: absolute;
     left: -35px;
     top: 50%;
-    width: max-content;
-    height: max-content;
     border-radius: 50%;
     transform: translateY(-50%) rotate(360deg);
 }
