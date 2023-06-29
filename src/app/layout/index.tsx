@@ -9,10 +9,10 @@ function Layout() {
     return (
         <div className="wrapper">
             <header className="header">
-                <Header dualSliderStockList={setProductsList} />
+                <Header SetDataList={setProductsList} />
             </header>
             <main className="main">
-                <MainPage props={productsList} />
+                <MainPage dataList={productsList} />
             </main>
             <footer className="footer">
                 <Footer />

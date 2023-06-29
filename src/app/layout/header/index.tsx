@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "app/layout/header/style.css";
 // import { Products } from "data/data";
-interface Aa {
-    dualSliderStockList: React.Dispatch<React.SetStateAction<string>>;
+interface TypeForSetDataList {
+    SetDataList: React.Dispatch<React.SetStateAction<string>>;
 }
-function Header({ dualSliderStockList }: Aa) {
+function Header({ SetDataList }: TypeForSetDataList) {
     const [open, setOpen] = useState(false);
     return (
         <div className="header__container _container">
@@ -21,7 +21,7 @@ function Header({ dualSliderStockList }: Aa) {
                         type="text"
                         placeholder="Please enter your text..."
                         className={`search-input  ${open ? "active" : "inactive"}`}
-                        onChange={(e) => dualSliderStockList(e.target.value)}
+                        onChange={(e) => SetDataList(e.target.value)}
                     />
                     <div
                         className={`search-btn  ${open ? "active" : "inactive"}`}

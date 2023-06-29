@@ -11,10 +11,10 @@ interface OnChangeCheckboxCallback {
     onChangeCategoriesList?: (value: string, checker: boolean) => void;
     onChangeManufacturesList?: (value: string, checker: boolean) => void;
 }
-interface Aa {
-    props: string;
+interface ListType {
+    dataList: string;
 }
-function MainPage({ props }: Aa) {
+function MainPage({ dataList }: ListType) {
     const [checkedCategories, setCheckedCategories] = useState<string[]>([]);
     const [checkedBrands, setCheckedBrands] = useState<string[]>([]);
 
@@ -121,15 +121,15 @@ function MainPage({ props }: Aa) {
     useEffect(() => {
         const search: Products[] = [];
         dualSliderStockList.filter((val) => {
-            if (props == "") {
+            if (dataList == "") {
                 search.push(val);
-            } else if (val.title.toLowerCase().includes(props.toLowerCase())) {
+            } else if (val.title.toLowerCase().includes(dataList.toLowerCase())) {
                 search.push(val);
             }
         });
 
         setSearchList(search);
-    }, [dualSliderStockList, props]);
+    }, [dualSliderStockList, dataList]);
     console.log(searchList);
     return (
         <>
