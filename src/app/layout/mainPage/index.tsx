@@ -11,8 +11,10 @@ interface OnChangeCheckboxCallback {
     onChangeCategoriesList?: (value: string, checker: boolean) => void;
     onChangeManufacturesList?: (value: string, checker: boolean) => void;
 }
-
-function MainPage() {
+interface Aa {
+    props: string;
+}
+function MainPage({ props }: Aa) {
     const [checkedCategories, setCheckedCategories] = useState<string[]>([]);
     const [checkedBrands, setCheckedBrands] = useState<string[]>([]);
 
@@ -23,6 +25,7 @@ function MainPage() {
     const [categoriesList, setCategoriesList] = useState<Products[]>([]);
     const [dualSliderPriceList, setDualSliderPriceList] = useState<Products[]>([]);
     const [dualSliderStockList, setDualSliderStockList] = useState<Products[]>([]);
+    const [searchList, setSearchList] = useState<Products[]>([]);
 
     const onChangeCategoriesList = (name: string, state: boolean) => {
         const checked = state;
@@ -46,7 +49,6 @@ function MainPage() {
             minValue: min,
             maxValue: max,
         };
-        console.log(dualSliderPrice);
         setDualSliderPrice(ob);
     };
 
@@ -55,7 +57,6 @@ function MainPage() {
             minValue: min,
             maxValue: max,
         };
-        console.log(dualSliderPrice);
         setDualSliderStock(ob);
     };
 
@@ -115,8 +116,21 @@ function MainPage() {
         } else {
             setDualSliderStockList(dualSliderPriceList);
         }
+        // dualSliderStockList.map((el) => props.push(el));
     }, [dualSliderPriceList, dualSliderStock]);
+    useEffect(() => {
+        const search: Products[] = [];
+        dualSliderStockList.filter((val) => {
+            if (props == "") {
+                search.push(val);
+            } else if (val.title.toLowerCase().includes(props.toLowerCase())) {
+                search.push(val);
+            }
+        });
 
+        setSearchList(search);
+    }, [dualSliderStockList, props]);
+    console.log(searchList);
     return (
         <>
             <section className="block">

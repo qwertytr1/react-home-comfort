@@ -77,7 +77,6 @@ function SortedBy({ dualSliderStockList }: Aa) {
                     return 0;
                 }
             });
-            console.log(discountASC);
         } else if (value === "discount DESC") {
             const ProductsList: Products[] = [];
             dualSliderStockList.forEach((el) => ProductsList.push(el));
@@ -90,7 +89,6 @@ function SortedBy({ dualSliderStockList }: Aa) {
                     return 0;
                 }
             });
-            console.log(discountDESC);
         }
     };
 

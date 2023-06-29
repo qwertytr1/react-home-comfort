@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import "app/layout/header/style.css";
-function Header() {
+// import { Products } from "data/data";
+interface Aa {
+    dualSliderStockList: React.Dispatch<React.SetStateAction<string>>;
+}
+function Header({ dualSliderStockList }: Aa) {
     const [open, setOpen] = useState(false);
     return (
         <div className="header__container _container">
@@ -17,6 +21,7 @@ function Header() {
                         type="text"
                         placeholder="Please enter your text..."
                         className={`search-input  ${open ? "active" : "inactive"}`}
+                        onChange={(e) => dualSliderStockList(e.target.value)}
                     />
                     <div
                         className={`search-btn  ${open ? "active" : "inactive"}`}
