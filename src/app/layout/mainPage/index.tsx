@@ -53,7 +53,6 @@ function MainPage({ dataList }: ListType) {
             minValue: min,
             maxValue: max,
         };
-        console.log(dualSliderPrice);
         setDualSliderPrice(ob);
     };
 
@@ -62,9 +61,9 @@ function MainPage({ dataList }: ListType) {
             minValue: min,
             maxValue: max,
         };
-        console.log(dualSliderPrice);
         setDualSliderStock(ob);
     };
+
     const onChangeValueSorted = (value: string) => {
         setActiveValue(value);
     };
