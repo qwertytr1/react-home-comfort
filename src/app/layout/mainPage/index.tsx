@@ -117,12 +117,12 @@ function MainPage({ dataList }: ListType) {
             setDualSliderStockList(dualSliderPriceList);
         }
     }, [dualSliderPriceList, dualSliderStock]);
-    
+
     useEffect(() => {
         const search = dualSliderStockList.filter((val) => val.title.toLowerCase().includes(dataList.toLowerCase()));
         setSearchList(search);
     }, [dualSliderStockList, dataList]);
-    
+
     return (
         <>
             <section className="block">
