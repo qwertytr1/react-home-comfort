@@ -116,21 +116,13 @@ function MainPage({ dataList }: ListType) {
         } else {
             setDualSliderStockList(dualSliderPriceList);
         }
-        // dualSliderStockList.map((el) => props.push(el));
     }, [dualSliderPriceList, dualSliderStock]);
+    
     useEffect(() => {
-        const search: Products[] = [];
-        dualSliderStockList.filter((val) => {
-            if (dataList == "") {
-                search.push(val);
-            } else if (val.title.toLowerCase().includes(dataList.toLowerCase())) {
-                search.push(val);
-            }
-        });
-
+        const search = dualSliderStockList.filter((val) => val.title.toLowerCase().includes(dataList.toLowerCase()));
         setSearchList(search);
     }, [dualSliderStockList, dataList]);
-    console.log(searchList);
+    
     return (
         <>
             <section className="block">

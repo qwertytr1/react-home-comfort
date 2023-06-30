@@ -3,16 +3,18 @@ import { Header } from "./header/index";
 import { Footer } from "./footer/index";
 import { MainPage } from "./mainPage/index";
 import "app/layout/style.css";
-// import { Products } from "data/data";
 function Layout() {
-    const [productsList, setProductsList] = useState<string>("");
+    const [searchValue, setSearchValue] = useState<string>("");
+    const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchValue(event.target.value);
+    };
     return (
         <div className="wrapper">
             <header className="header">
-                <Header SetDataList={setProductsList} />
+                <Header onChangeHandler={onChangeHandler} />
             </header>
             <main className="main">
-                <MainPage dataList={productsList} />
+                <MainPage dataList={searchValue} />
             </main>
             <footer className="footer">
                 <Footer />

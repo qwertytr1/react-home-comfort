@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import "app/layout/header/style.css";
-// import { Products } from "data/data";
 interface TypeForSetDataList {
-    SetDataList: React.Dispatch<React.SetStateAction<string>>;
+    onChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
-function Header({ SetDataList }: TypeForSetDataList) {
+function Header({ onChangeHandler }: TypeForSetDataList) {
     const [open, setOpen] = useState(false);
     return (
         <div className="header__container _container">
@@ -21,7 +20,7 @@ function Header({ SetDataList }: TypeForSetDataList) {
                         type="text"
                         placeholder="Please enter your text..."
                         className={`search-input  ${open ? "active" : "inactive"}`}
-                        onChange={(e) => SetDataList(e.target.value)}
+                        onChange={onChangeHandler}
                     />
                     <div
                         className={`search-btn  ${open ? "active" : "inactive"}`}
