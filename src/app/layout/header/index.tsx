@@ -19,21 +19,12 @@ function Header() {
                         className={`search-input  ${open ? "active" : "inactive"}`}
                     />
                     <div
-                        className="search-btn"
+                        className={`search-btn  ${open ? "active" : "inactive"}`}
                         onClick={() => {
                             setOpen(!open);
                         }}
                     >
                         <i className="fas fa-search"></i>
-                    </div>
-
-                    <div
-                        className="cancel-btn"
-                        onClick={() => {
-                            setOpen(open);
-                        }}
-                    >
-                        <i className="fas fa-times"></i>
                     </div>
                 </div>
                 <div className="searchAndShoppingBasket__ShoppingBasket">

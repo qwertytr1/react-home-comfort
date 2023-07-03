@@ -1,18 +1,18 @@
 .wrapper {
-  min-height: 100%;
-  overflow: hidden;
-  background-color: rgb(247, 247, 247);
+    min-height: 100%;
+    overflow: hidden;
+    background-color: rgb(247, 247, 247);
 }
 
 .header {
-  width: 100%;
-  left: 0;
-  top: 0;
+    width: 100%;
+    left: 0;
+    top: 0;
 }
 
 .footer {
-  width: 100%;
-  left: 0;
-  top: 100%;
-  background-color: rgb(145, 143, 143);
+    width: 100%;
+    left: 0;
+    top: 100%;
+    background-color: rgb(145, 143, 143);
 }

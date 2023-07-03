@@ -6,7 +6,7 @@ function ChooseCategories({ onChangeCategoriesList }: OnChangeCheckboxCallback) 
     return (
         <CheckboxesContainer
             checkboxes={allCategories}
-            title="Manufactures"
+            title="Categories"
             onChangeCheckboxModel={onChangeCategoriesList}
         />
     );
