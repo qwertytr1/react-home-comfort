@@ -4,7 +4,6 @@ import "app/layout/mainPage/style.css";
 import { Filter } from "components/sorted element/filter/index";
 import { data, Products } from "data/data";
 import { getAllCategories, transformCategories } from "data/creationDataObject";
-
 interface OnChangeCheckboxCallback {
     onChangeStockSlider?: (min: number, max: number) => void;
     onChangePriceSlider?: (min: number, max: number) => void;
