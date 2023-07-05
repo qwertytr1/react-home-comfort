@@ -4,17 +4,20 @@ import "app/layout/mainPage/style.css";
 import { Filter } from "components/sorted element/filter/index";
 import { data, Products } from "data/data";
 import { getAllCategories, transformCategories } from "data/creationDataObject";
+import { CardList } from "components/cardlist/cardlist/index";
 
 interface OnChangeCheckboxCallback {
     onChangeStockSlider?: (min: number, max: number) => void;
     onChangePriceSlider?: (min: number, max: number) => void;
-    onChangeCategoriesList?: (value: string, checker: boolean) => void;
-    onChangeManufacturesList?: (value: string, checker: boolean) => void;
+    onChangeCategoriesList?: (activeValue: string, checker: boolean) => void;
+    onChangeManufacturesList?: (activeValue: string, checker: boolean) => void;
 }
 interface ListType {
     dataList: string;
 }
 function MainPage({ dataList }: ListType) {
+    const [activeValue, setActiveValue] = useState("auto");
+  
     const [checkedCategories, setCheckedCategories] = useState<string[]>([]);
     const [checkedBrands, setCheckedBrands] = useState<string[]>([]);
 
@@ -26,6 +29,7 @@ function MainPage({ dataList }: ListType) {
     const [dualSliderPriceList, setDualSliderPriceList] = useState<Products[]>([]);
     const [dualSliderStockList, setDualSliderStockList] = useState<Products[]>([]);
     const [searchList, setSearchList] = useState<Products[]>([]);
+    const [sortedList, setSortedList] = useState<Products[]>([]);
 
     const onChangeCategoriesList = (name: string, state: boolean) => {
         const checked = state;
@@ -119,22 +123,69 @@ function MainPage({ dataList }: ListType) {
     }, [dualSliderPriceList, dualSliderStock]);
 
     useEffect(() => {
-        const search = dualSliderStockList.filter((val) => val.title.toLowerCase().includes(dataList.toLowerCase()));
+        const sortList = [...dualSliderStockList];
+        let ProductsList: Products[] = [];
+        switch (activeValue) {
+            case "auto":
+                ProductsList = dualSliderStockList;
+                break;
+            case "price ASC":
+                ProductsList = sortList.sort((a, b) => {
+                    return parseInt(b.price) - parseInt(a.price);
+                });
+                break;
+            case "price DESC":
+                ProductsList = sortList.sort((a, b) => {
+                    return parseInt(a.price) - parseInt(b.price);
+                });
+                break;
+            case "rating ASC":
+                ProductsList = sortList.sort((a, b) => {
+                    return Number(b.rating) - Number(a.rating);
+                });
+                break;
+            case "rating DESC":
+                ProductsList = sortList.sort((a, b) => {
+                    return Number(a.rating) - Number(b.rating);
+                });
+                break;
+            case "discount ASC":
+                ProductsList = sortList.sort((a, b) => {
+                    return parseInt(b.discountPercentage) - parseInt(a.discountPercentage);
+                });
+                break;
+            case "discount DESC":
+                ProductsList = sortList.sort((a, b) => {
+                    return parseInt(a.discountPercentage) - parseInt(b.discountPercentage);
+                });
+                break;
+        }
+        setSortedList([...ProductsList]);
+    }, [activeValue, dualSliderStockList]);
+
+    useEffect(() => {
+        const search = sortedList.filter((val) => val.title.toLowerCase().includes(dataList.toLowerCase()));
         setSearchList(search);
-    }, [dualSliderStockList, dataList]);
+    }, [dataList, sortedList]);
 
     return (
         <>
             <section className="block">
-                <SortedBy dualSliderStockList={dualSliderStockList} />
+                <SortedBy
+                    activeValue={activeValue}
+                    setActiveValue={setActiveValue}
+                    dualSliderStockList={dualSliderStockList}
+                />
             </section>
-            <Filter
-                onChangeCategoriesList={onChangeCategoriesList}
-                onChangeManufacturesList={onChangeManufacturesList}
-                onChangePriceSlider={onChangePriceSlider}
-                onChangeStockSlider={onChangeStockSlider}
-            />
-            <article className="main__block-products block-products">{/* <CardBlock /> */}</article>
+            <div className="main__page-block main-block">
+                <Filter
+                    onChangeCategoriesList={onChangeCategoriesList}
+                    onChangeManufacturesList={onChangeManufacturesList}
+                    onChangePriceSlider={onChangePriceSlider}
+                    onChangeStockSlider={onChangeStockSlider}
+                />
+                <article className="main__block-products block-products">{CardList(searchList)}</article>
+            </div>
         </>
     );
 }
