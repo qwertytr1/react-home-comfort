@@ -65,6 +65,9 @@ function MainPage({ dataList }: ListType) {
         console.log(dualSliderPrice);
         setDualSliderStock(ob);
     };
+    const onChangeValueSorted = (value: string) => {
+        setActiveValue(value);
+    };
 
     useEffect(() => {
         const transformedCategories = transformCategories(data);
@@ -175,7 +178,7 @@ function MainPage({ dataList }: ListType) {
             <section className="block">
                 <SortedBy
                     activeValue={activeValue}
-                    setActiveValue={setActiveValue}
+                    setActiveValue={onChangeValueSorted}
                     dualSliderStockList={dualSliderStockList}
                 />
             </section>

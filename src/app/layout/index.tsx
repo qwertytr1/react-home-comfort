@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Header } from "./header/index";
 import { Footer } from "./footer/index";
 import { MainPage } from "./mainPage/index";

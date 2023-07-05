@@ -1,12 +1,12 @@
 import { Products } from "data/data";
 import React, { useState } from "react";
 import "./style.css";
-interface Aa {
+interface TypeSortedElement {
     dualSliderStockList: Products[];
     activeValue: string;
-    setActiveValue: React.Dispatch<React.SetStateAction<string>>;
+    setActiveValue: (value: string) => void;
 }
-function SortedBy({ dualSliderStockList, activeValue, setActiveValue }: Aa) {
+function SortedBy({ dualSliderStockList, activeValue, setActiveValue }: TypeSortedElement) {
     const [open, setOpen] = useState(false);
 
     const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
