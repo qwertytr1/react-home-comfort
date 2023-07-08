@@ -12,15 +12,13 @@ function Filter({
     onChangeStockSlider,
 }: OnChangeCheckboxCallback) {
     return (
-        <div className="main__page-block main-block">
-            <div className="main__container _container">
-                <section className="main__filter">
-                    <ChooseCategories onChangeCategoriesList={onChangeCategoriesList} />
-                    <ChooseManufacture onChangeManufacturesList={onChangeManufacturesList} />
-                    <Price onChangePriceSlider={onChangePriceSlider} />
-                    <Stock onChangeStockSlider={onChangeStockSlider} />
-                </section>
-            </div>
+        <div className="main__container _container">
+            <section className="main__filter">
+                <ChooseCategories onChangeCategoriesList={onChangeCategoriesList} />
+                <ChooseManufacture onChangeManufacturesList={onChangeManufacturesList} />
+                <Price onChangePriceSlider={onChangePriceSlider} />
+                <Stock onChangeStockSlider={onChangeStockSlider} />
+            </section>
         </div>
     );
 }

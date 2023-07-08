@@ -28,10 +28,10 @@ function DualSliderContainer({ title, onChangeSlider, minValue, maxValue, minDis
                     step={step}
                     withTracks={true}
                     pearling={true}
-                    renderThumb={(props) => {
+                    renderThumb={props => {
                         return <div {...props} className="thumb"></div>;
                     }}
-                    renderTrack={(props) => {
+                    renderTrack={props => {
                         return <div {...props} className="track"></div>;
                     }}
                     onChange={([Min, Max]) => {
