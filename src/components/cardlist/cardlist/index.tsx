@@ -2,7 +2,7 @@ import { Products } from "data/data";
 import React from "react";
 import { Card } from "components/cardlist/card/index";
 function CardList(data: Products[]) {
-    return data.map((el) => {
+    return data.map(el => {
         return (
             <>
                 <Card

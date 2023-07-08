@@ -20,11 +20,11 @@ function Card({ discount, price, rating, manufacturer, title, link }: TypeList) 
                 <p className="manufacturer">{manufacturer}</p>
             </div>
             <div className="products-card__flex">
-                <div className="products-card__basket"></div>
                 <div className="products-card__price">
                     <h3 className="titleCard">{price}</h3>
                     <div className="discount">-{discount}</div>
                 </div>
+                <div className="products-card__basket"></div>
             </div>
         </div>
     );

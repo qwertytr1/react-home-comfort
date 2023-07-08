@@ -36,7 +36,7 @@ function MainPage({ dataList }: ListType) {
         if (checked) {
             setCheckedCategories([...checkedCategories, name]);
         } else {
-            setCheckedCategories(checkedCategories.filter((e) => e !== name));
+            setCheckedCategories(checkedCategories.filter(e => e !== name));
         }
     };
 
@@ -45,7 +45,7 @@ function MainPage({ dataList }: ListType) {
         if (checked) {
             setCheckedBrands([...checkedBrands, name]);
         } else {
-            setCheckedBrands(checkedBrands.filter((e) => e !== name));
+            setCheckedBrands(checkedBrands.filter(e => e !== name));
         }
     };
     const onChangePriceSlider = (min: number, max: number) => {
@@ -73,11 +73,11 @@ function MainPage({ dataList }: ListType) {
         const allCategories = getAllCategories(data);
         const categories: Products[] = [];
         if (checkedCategories.length) {
-            checkedCategories.forEach((element) => {
+            checkedCategories.forEach(element => {
                 categories.push(...transformedCategories[element]);
             });
         } else {
-            allCategories.forEach((element) => {
+            allCategories.forEach(element => {
                 categories.push(...transformedCategories[element]);
             });
         }
@@ -87,8 +87,8 @@ function MainPage({ dataList }: ListType) {
     useEffect(() => {
         if (checkedBrands.length) {
             const manufactures: Products[] = [];
-            checkedBrands.forEach((element) => {
-                const manufacture = categoriesList.filter((el) => el.brand === element);
+            checkedBrands.forEach(element => {
+                const manufacture = categoriesList.filter(el => el.brand === element);
                 manufactures.push(...manufacture);
             });
             setBrandsList(manufactures);
@@ -100,7 +100,7 @@ function MainPage({ dataList }: ListType) {
     useEffect(() => {
         if (dualSliderPrice.minValue !== 0 || dualSliderPrice.maxValue !== 5000) {
             const price: Products[] = [];
-            brandsList.forEach((el) => {
+            brandsList.forEach(el => {
                 const a = Number(el.price.slice(0, -1));
                 if (a <= dualSliderPrice.maxValue && a >= dualSliderPrice.minValue) {
                     price.push(...[el]);
@@ -115,7 +115,7 @@ function MainPage({ dataList }: ListType) {
     useEffect(() => {
         if (dualSliderStock.minValue !== 0 || dualSliderStock.maxValue !== 150) {
             const stock: Products[] = [];
-            dualSliderPriceList.forEach((el) => {
+            dualSliderPriceList.forEach(el => {
                 if (el.stock <= dualSliderStock.maxValue && el.stock >= dualSliderStock.minValue) {
                     stock.push(...[el]);
                 }
@@ -168,7 +168,7 @@ function MainPage({ dataList }: ListType) {
     }, [activeValue, dualSliderStockList]);
 
     useEffect(() => {
-        const search = sortedList.filter((val) => val.title.toLowerCase().includes(dataList.toLowerCase()));
+        const search = sortedList.filter(val => val.title.toLowerCase().includes(dataList.toLowerCase()));
         setSearchList(search);
     }, [dataList, sortedList]);
 
