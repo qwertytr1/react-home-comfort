@@ -17,7 +17,7 @@ interface ListType {
 }
 function MainPage({ dataList }: ListType) {
     const [activeValue, setActiveValue] = useState("auto");
-
+  
     const [checkedCategories, setCheckedCategories] = useState<string[]>([]);
     const [checkedBrands, setCheckedBrands] = useState<string[]>([]);
 
