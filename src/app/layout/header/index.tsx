@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "app/layout/header/style.css";
+import { NavLink } from "react-router-dom";
 interface TypeForSetDataList {
-    onChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onChangeHandler?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 function Header({ onChangeHandler }: TypeForSetDataList) {
     const [open, setOpen] = useState(false);
@@ -10,6 +11,7 @@ function Header({ onChangeHandler }: TypeForSetDataList) {
             <h1 className="title">
                 HOME<span>COMFORT</span>
             </h1>
+
             <h3 className="total">
                 TOTAL: <span>0$</span>{" "}
             </h3>
@@ -39,9 +41,9 @@ function Header({ onChangeHandler }: TypeForSetDataList) {
                         <i className="fas fa-times"></i>
                     </div>
                 </div>
-                <div className="searchAndShoppingBasket__ShoppingBasket">
+                <NavLink to="/basket" className="searchAndShoppingBasket__ShoppingBasket">
                     <span className="Basket__counter">0</span>
-                </div>
+                </NavLink>
             </div>
         </div>
     );
