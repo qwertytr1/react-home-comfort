@@ -1,5 +1,6 @@
 import React from "react";
 import "components/cardlist/card/style.css";
+
 function Card(
     link: string[],
     title: string,
