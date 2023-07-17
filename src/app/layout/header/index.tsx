@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "app/layout/header/style.css";
-function Header() {
+interface TypeForSetDataList {
+    onChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+function Header({ onChangeHandler }: TypeForSetDataList) {
     const [open, setOpen] = useState(false);
     return (
         <div className="header__container _container">
@@ -17,6 +20,7 @@ function Header() {
                         type="text"
                         placeholder="Please enter your text..."
                         className={`search-input  ${open ? "active" : "inactive"}`}
+                        onChange={onChangeHandler}
                     />
                     <div
                         className={`search-btn  ${open ? "active" : "inactive"}`}
@@ -25,6 +29,14 @@ function Header() {
                         }}
                     >
                         <i className="fas fa-search"></i>
+                    </div>
+                    <div
+                        className={`cancel-btn ${open ? "active" : "inactive"}`}
+                        onClick={() => {
+                            setOpen(!open);
+                        }}
+                    >
+                        <i className="fas fa-times"></i>
                     </div>
                 </div>
                 <div className="searchAndShoppingBasket__ShoppingBasket">
