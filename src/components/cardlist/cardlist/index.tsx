@@ -4,17 +4,15 @@ import { Card } from "components/cardlist/card/index";
 function CardList(data: Products[]) {
     return data.map(el => {
         return (
-            <>
-                <Card
-                    key={el.id}
-                    discount={el.discountPercentage}
-                    rating={el.rating}
-                    link={el.img}
-                    title={el.title}
-                    price={el.price}
-                    manufacturer={el.brand}
-                />
-            </>
+            <Card
+                key={el.id}
+                discount={el.discountPercentage}
+                rating={el.rating}
+                link={el.img}
+                title={el.title}
+                price={el.price}
+                manufacturer={el.brand}
+            />
         );
     });
 }
