@@ -1,6 +1,6 @@
 import React from "react";
 import "components/cardlist/card/style.css";
-import { MAX_RATING } from "data/const";
+// import { MAX_RATING } from "data/const";
 interface TypeList {
     link: string[];
     title: string;
@@ -16,9 +16,7 @@ function Card({ discount, price, rating, manufacturer, title, link }: TypeList) 
             <div className="products-card__name">
                 <h3 className="name">{title}</h3>
             </div>
-            <div className="products-card__rating">
-                {rating}/{MAX_RATING}
-            </div>
+            <div className="products-card__rating">{rating}/5</div>
             <div className="products-card__manufacturer">
                 <p className="manufacturer">{manufacturer}</p>
             </div>
