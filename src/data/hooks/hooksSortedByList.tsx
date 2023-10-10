@@ -43,5 +43,5 @@ export function useChangeSortedBy(activeValue: string, dualSliderStockList: Prod
         }
         setSortedList([...ProductsList]);
     }, [activeValue, dualSliderStockList]);
-    return sortedList;
+    return { sortedList };
 }

@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { SortedBy } from "components/sorted element/SortedBy";
 import "app/layout/mainPage/style.css";
 import { Filter } from "components/sorted element/filter/index";
-import { Products } from "data/data";
-import { CardList } from "components/cardlist/cardlist/index";
 import { useChangeCheckedCategoriesList } from "data/hooks/hooksCategoriesList";
-
+import { Card } from "components/cardlist/card";
 import { useChangeManufactureCheckedList } from "data/hooks/hooksManufactureList";
 import { useChangePriceSlider } from "data/hooks/hooksSliderPrice";
 import { useChangeStockSlider } from "data/hooks/hooksSliderStock";
@@ -22,11 +20,10 @@ interface OnChangeCheckboxCallback {
     onChangeManufacturesList?: (activeValue: string, checker: boolean) => void;
 }
 interface ListType {
-    dataList: string;
+    searchValue: string;
 }
-function MainPage({ dataList }: ListType) {
+function MainPage({ searchValue }: ListType) {
     const [activeValue, setActiveValue] = useState("auto");
-
     const { onChangeCategoriesList, checkedCategories } = useChangeCheckedCategoriesList();
     const { onChangeManufacturesList, checkedBrands } = useChangeManufactureCheckedList();
     const { onChangePriceSlider, dualSliderPrice } = useChangePriceSlider();
@@ -38,11 +35,26 @@ function MainPage({ dataList }: ListType) {
     const { categoriesList } = useChangeCategoriesList(checkedCategories);
     const { brandsList } = useChangeManufactureList(categoriesList, checkedBrands);
     const { dualSliderPriceList } = useChangePriceSliderList(dualSliderPrice, brandsList);
-    const dualSliderStockList: Products[] = useChangeStockSliderList(dualSliderStock, dualSliderPriceList);
-    const sortedList: Products[] = useChangeSortedBy(activeValue, dualSliderStockList); //я так могу пимать или нет ????
-    const searchList: Products[] = useChangeSearch(sortedList, dataList);
-    console.log(searchList);
-
+    const { dualSliderStockList } = useChangeStockSliderList(dualSliderStock, dualSliderPriceList); //до этого все норм
+    const { sortedList } = useChangeSortedBy(activeValue, dualSliderStockList);
+    const { searchList } = useChangeSearch(sortedList, searchValue);
+    const content = useMemo(() => {
+        {
+            return searchList.map(el => {
+                return (
+                    <Card
+                        key={`${el.id}.${el.price}.${el.description},${el.category}`}
+                        discount={el.discountPercentage}
+                        rating={el.rating}
+                        link={el.img}
+                        title={el.title}
+                        price={el.price}
+                        manufacturer={el.brand}
+                    />
+                );
+            });
+        }
+    }, [searchList]);
     return (
         <>
             <section className="block">
@@ -59,7 +71,7 @@ function MainPage({ dataList }: ListType) {
                     onChangePriceSlider={onChangePriceSlider}
                     onChangeStockSlider={onChangeStockSlider}
                 />
-                <article className="main__block-products block-products">{CardList(searchList)}</article>
+                <div className="main__block-products block-products">{content}</div>
             </div>
         </>
     );

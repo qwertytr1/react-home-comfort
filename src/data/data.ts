@@ -1143,7 +1143,6 @@ const allManufacturers: string[] = [
     "East Urban Home",
     "Union Rustic",
     "Steelside",
-    "Wade Logan",
     "Bungalow Rose",
     "Rosalind Wheeler",
     "Rebrilliant",

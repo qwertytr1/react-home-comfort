@@ -1,2 +1,6 @@
 const MAX_RATING = 5;
+const MIN_VALUE_STOCK = 0;
+const MAX_VALUE_STOCK = 150;
+const MIN_VALUE_PRICE = 0;
+const MAX_VALUE_PRICE = 3000;
 export { MAX_RATING };

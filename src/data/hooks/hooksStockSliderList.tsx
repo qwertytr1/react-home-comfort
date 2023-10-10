@@ -22,5 +22,5 @@ export function useChangeStockSliderList(
             setDualSliderStockList(dualSliderPriceList);
         }
     }, [dualSliderPriceList, dualSliderStock]);
-    return dualSliderStockList;
+    return { dualSliderStockList };
 }
