@@ -11,7 +11,6 @@ function CheckboxesContainer({ title, checkboxes, onChangeCheckboxModel }: Check
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         onChangeCheckboxModel?.(event.target.value, event.target.checked);
     };
-
     return (
         <aside className="main__filter-block">
             <h2 className="filtersTitle">{title}</h2>

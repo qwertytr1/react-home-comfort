@@ -14,7 +14,7 @@ function Layout() {
                 <Header onChangeHandler={onChangeHandler} />
             </header>
             <main className="main">
-                <MainPage dataList={searchValue} />
+                <MainPage searchValue={searchValue} />
             </main>
             <footer className="footer">
                 <Footer />
