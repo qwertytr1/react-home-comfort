@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Products } from "data/data";
+import { MIN_VALUE_STOCK, MAX_VALUE_STOCK } from "data/const";
 export function useChangeStockSliderList(
     dualSliderStock: {
         minValue: number;
@@ -10,7 +11,7 @@ export function useChangeStockSliderList(
     const [dualSliderStockList, setDualSliderStockList] = useState<Products[]>([]);
 
     useEffect(() => {
-        if (dualSliderStock.minValue !== 0 || dualSliderStock.maxValue !== 150) {
+        if (dualSliderStock.minValue !== MIN_VALUE_STOCK || dualSliderStock.maxValue !== MAX_VALUE_STOCK) {
             const stock: Products[] = [];
             dualSliderPriceList.forEach(el => {
                 if (el.stock <= dualSliderStock.maxValue && el.stock >= dualSliderStock.minValue) {

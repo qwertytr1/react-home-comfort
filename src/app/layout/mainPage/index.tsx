@@ -35,7 +35,7 @@ function MainPage({ searchValue }: ListType) {
     const { categoriesList } = useChangeCategoriesList(checkedCategories);
     const { brandsList } = useChangeManufactureList(categoriesList, checkedBrands);
     const { dualSliderPriceList } = useChangePriceSliderList(dualSliderPrice, brandsList);
-    const { dualSliderStockList } = useChangeStockSliderList(dualSliderStock, dualSliderPriceList); //до этого все норм
+    const { dualSliderStockList } = useChangeStockSliderList(dualSliderStock, dualSliderPriceList);
     const { sortedList } = useChangeSortedBy(activeValue, dualSliderStockList);
     const { searchList } = useChangeSearch(sortedList, searchValue);
     const content = useMemo(() => {

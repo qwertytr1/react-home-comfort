@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Products } from "data/data";
+import { MIN_VALUE_PRICE, MAX_VALUE_PRICE } from "data/const";
 export function useChangePriceSliderList(
     dualSliderPrice: {
         minValue: number;
@@ -9,7 +10,7 @@ export function useChangePriceSliderList(
 ) {
     const [dualSliderPriceList, setDualSliderPriceList] = useState<Products[]>([]);
     useEffect(() => {
-        if (dualSliderPrice.minValue !== 0 || dualSliderPrice.maxValue !== 5000) {
+        if (dualSliderPrice.minValue !== MIN_VALUE_PRICE || dualSliderPrice.maxValue !== MAX_VALUE_PRICE) {
             const price: Products[] = [];
             brandsList.forEach(el => {
                 const a = Number(el.price.slice(0, -1));
