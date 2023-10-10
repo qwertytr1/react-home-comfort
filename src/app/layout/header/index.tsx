@@ -27,7 +27,7 @@ function Header({ onChangeHandler }: TypeForSetDataList) {
                     <div
                         className={`search-btn  ${open ? "active" : "inactive"}`}
                         onClick={() => {
-                            setOpen(!open);
+                            setOpen(prev => !prev);
                         }}
                     >
                         <i className="fas fa-search"></i>
@@ -35,7 +35,7 @@ function Header({ onChangeHandler }: TypeForSetDataList) {
                     <div
                         className={`cancel-btn ${open ? "active" : "inactive"}`}
                         onClick={() => {
-                            setOpen(!open);
+                            setOpen(prev => !prev);
                         }}
                     >
                         <i className="fas fa-times"></i>
