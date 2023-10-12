@@ -1,3 +1,4 @@
+import { MAX_VALUE_PRICE, MIN_DISTANCE_PRICE, MIN_VALUE_PRICE, STEP_PRICE } from "data/const";
 import React from "react";
 import { DualSliderContainer } from "UIKit/reactSliderContainer/index";
 interface OnChangeInterface {
@@ -8,10 +9,10 @@ function Price({ onChangePriceSlider }: OnChangeInterface) {
         <DualSliderContainer
             title="Price"
             onChangeSlider={onChangePriceSlider}
-            minValue={0}
-            maxValue={3000}
-            minDist={250}
-            step={50}
+            minValue={MIN_VALUE_PRICE}
+            maxValue={MAX_VALUE_PRICE}
+            minDist={MIN_DISTANCE_PRICE}
+            step={STEP_PRICE}
         />
     );
 }

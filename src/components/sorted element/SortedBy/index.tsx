@@ -1,8 +1,13 @@
+import { Products } from "data/data";
 import React, { useState } from "react";
 import "./style.css";
-function SortedBy() {
+interface TypeSortedElement {
+    dualSliderStockList: Products[];
+    activeValue: string;
+    setActiveValue: (value: string) => void;
+}
+function SortedBy({ dualSliderStockList, activeValue, setActiveValue }: TypeSortedElement) {
     const [open, setOpen] = useState(false);
-    const [activeValue, setActiveValue] = useState("auto");
 
     const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
         const value = e.currentTarget.dataset.value;
@@ -92,7 +97,7 @@ function SortedBy() {
                     </nav>
                 </div>
 
-                <span className="found">Found: 0</span>
+                <span className="found">Found: {dualSliderStockList.length}</span>
             </article>
             <article className="main__block-products block-products"></article>
         </>
